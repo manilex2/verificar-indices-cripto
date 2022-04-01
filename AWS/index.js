@@ -14,7 +14,7 @@ exports.handler = async function (event) {
         const client = await auth.getClient();
         const googleSheet = google.sheets({ version: 'v4', auth: client });
         try {
-            let sql = `SELECT DISTINCT indice FROM ${process.env.TABLE_CRIPTO}`;
+            let sql = `SELECT DISTINCT indice FROM ${process.env.TABLE_CRIPTO_TICKER}`;
             conexion.query(sql, function (err, resultado) {
                 if (err) throw err;
                 agregarIndices(resultado);
